@@ -7,13 +7,7 @@ import (
 )
 
 func main() {
-	board := [][]string{}
-	row1 := []string{" ", " ", " "}
-	row2 := []string{" ", " ", " "}
-	row3 := []string{" ", " ", " "}
-	board = append(board, row1)
-	board = append(board, row2)
-	board = append(board, row3)
+	board := emptyBoard()
 	player := true;
 	for winner(board) == ""{
 		print("\033[H\033[2J")
@@ -27,6 +21,17 @@ func main() {
 	}
 	drawBoard(board)
 	println("Winner is: " + winner(board))
+}
+
+func emptyBoard() ([][]string){
+	board := [][]string{}
+	row1 := []string{" ", " ", " "}
+	row2 := []string{" ", " ", " "}
+	row3 := []string{" ", " ", " "}
+	board = append(board, row1)
+	board = append(board, row2)
+	board = append(board, row3)
+	return board
 }
 
 func drawBoard(board [][]string) {
